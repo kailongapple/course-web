@@ -83,8 +83,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           instance-ids: ${{ secrets.INSTANCE_ID }}
-          working-directory: /home/course/course-web
+          working-directory: /root
           command: |
-            docker-compose pull
-            docker-compose down
-            docker-compose up -d
+            . ~/.bashrc 
+            cd course-web
+            kubectl apply -f ./
